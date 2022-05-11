@@ -1,16 +1,16 @@
 class AutoBank:
-
     def __init__(self, name, balance):
         self.name = name
         self.balance = balance
+
     def deposit(self, amount):
         if amount > 0:
             self.balance += amount
-            print(self.name +" : ")
+            print(self.name + " : ")
             print(self.balance)
 
     def withdraw(self, amount):
-        if amount > 0 and self.balance > amount:
+        if 0 < amount < self.balance:
             self.balance -= amount
             print(self.name + " : ")
             print(self.balance)
@@ -18,7 +18,7 @@ class AutoBank:
             print("Insufficient funds")
 
     def transfer(self, amount, account):
-        if amount > 0 and self.balance > amount:
+        if 0 < amount < self.balance:
             self.balance = self.balance - amount
             account.balance = account.balance + amount
             print(self.name + " : ")
@@ -28,8 +28,9 @@ class AutoBank:
         else:
             print(self.name + " : ")
             print("Insufficient funds")
+
     def balances(self):
-        print(self.name+"'s balance is : ")
+        print(self.name + "'s balance is : ")
         print(self.balance)
 
 
@@ -74,4 +75,3 @@ wanjiru.deposit(188.00)
 wanjiru.balances()
 linda.balances()
 juma.balances()
-
